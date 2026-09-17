@@ -275,13 +275,20 @@ async def try_on_endpoint(req: TryOnRequest):
             if portrait_url:
                 print(f"  [VModel] Portrait URL: {portrait_url}")
                 
-                # Build detailed prompt for V-Editor
+                # Build detailed necklace-specific prompt for V-Editor with photorealism emphasis
                 vmodel_prompt = (
-                    f"Add {jewel_title} ({try_on_type}) to this portrait. "
-                    f"Place it naturally on the person with realistic diamond refraction, "
-                    f"gold lustre, and natural draping. "
+                    f"Place a luxury {jewel_title} necklace on this person's neck and chest area. "
+                    f"Position the necklace naturally following the clavicle and neckline contours. "
+                    f"The necklace should drape realistically with natural weight distribution. "
+                    f"Render photorealistic diamond sparkle, gold metal reflections, and gemstone brilliance. "
                     f"Lighting: {lighting}. "
-                    f"Preserve the person's facial identity, skin tone, and original clothing."
+                    f"CRITICAL REQUIREMENTS: "
+                    f"1. Keep the person's exact pose, position, and body angle completely unchanged. "
+                    f"2. Preserve the background 100% exactly as original - same colors, lighting, and details. "
+                    f"3. Keep the person's face, skin tone, hair, and clothing absolutely identical to the original. "
+                    f"4. The output must look like a real professional photograph, not AI-generated. "
+                    f"5. ONLY add the necklace - everything else must remain pixel-perfect identical. "
+                    f"The final image should look like the person was photographed while naturally wearing this necklace."
                 )
                 
                 headers = {
