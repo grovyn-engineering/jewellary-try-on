@@ -1,0 +1,11 @@
+numpy
+opencv-python
+pyyaml
+mediapipe
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+google-genai
+cloudinary
+requests

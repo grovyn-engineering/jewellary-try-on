@@ -1,0 +1,10 @@
+{
+  "name": "Aurevya Haute Joaillerie",
+  "description": "An ultra-luxury Indian-origin contemporary haute joaillerie digital flagship and private salon featuring the signature AI Virtual Mirror.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

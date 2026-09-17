@@ -1,0 +1,33 @@
+__pycache__/
+*.pyc
+*.pyo
+.git/
+.gitignore
+venv/
+.env
+.env.local
+.env.*.local
+.venv
+*.log
+tests/
+test/
+*.test.*
+*.spec.*
+
+# Documentation
+README.md
+HANDOFF.md
+DEPLOY.md
+
+# IDE files
+.vscode/
+.idea/
+.DS_Store
+
+# Model files (fetched at build time from 3DDFA_V2 repo)
+tddfa_lite/weights/
+tddfa_lite/configs/bfm_noneck_v3.pkl
+tddfa_lite/configs/tri.pkl
+
+# Debug/test scripts (not needed in production)
+test_cli.py

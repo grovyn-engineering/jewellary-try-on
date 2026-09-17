@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Gloock', Georgia, serif;
+  --font-display: 'Gloock', Georgia, serif;
+  --font-sans: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Sovereign Light Luxury Palette & High-Fashion Color Blockers */
+  --color-ivory: #F8F5EE;
+  --color-porcelain: #F1EEE7;
+  --color-canvas: #F8F5EE;
+  --color-surface: #F1EEE7;
+  --color-surface-hover: #E7E2D6;
+  --color-deep-emerald: #073B32;
+  --color-emerald: #0D6B58;
+  --color-ruby: #8C1732;
+  --color-sapphire: #163B70;
+  --color-amethyst: #633D78;
+  --color-champagne: #C6A56B;
+  --color-charcoal: #171717;
+  --color-charcoal-light: #272522;
+  --color-diamond-white: #FFFFFF;
+  --color-gold: #A98B58;
+  --color-gold-muted: #C9B38A;
+  --color-stone: #EFECE5;
+  --color-stone-dark: #E2DDD3;
+  --color-taupe: #5F5A52;
+}
+
+/* Base Body Styling - STRICT LIGHT THEME WITH HIGH CONTRAST */
+body {
+  background-color: #F8F5EE;
+  color: #171717;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: default;
+}
+
+/* Custom luxury scrollbar for sunlit palette */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #FCFAF6;
+}
+::-webkit-scrollbar-thumb {
+  background: #E5DDD1;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A98B58;
+}
+
+/* Hide scrollbar for clean luxury horizontal rails */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Subtle image shimmer placeholder in soft stone */
+@keyframes shimmerLight {
+  0% { opacity: 0.92; }
+  50% { opacity: 1; }
+  100% { opacity: 0.92; }
+}
+
+.animate-shimmer-slow {
+  animation: shimmerLight 5s ease-in-out infinite;
+}
+
+/* Refined human gold metadata: Sora Medium label + Sora Semibold value */
+.gold-meta-label {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.gold-meta-value {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+
+.stone-hairline {
+  border: 1px solid rgba(80, 70, 55, 0.12);
+}
+
+/* Subtle luxury gold shadow for highlighted jewels */
+.gold-glow {
+  box-shadow: 0 10px 30px -5px rgba(169, 139, 88, 0.15);
+}
