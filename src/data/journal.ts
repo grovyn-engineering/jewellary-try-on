@@ -1,4 +1,9 @@
 import { JournalArticle } from '../types';
+import necklace1 from '../images/necklace1.jpg';
+import necklace2 from '../images/necklace2.jpg';
+import diamond2 from '../images/diamond2.jpg';
+import diamond5 from '../images/diamond5.jpg';
+import rare1 from '../images/rare1.jpg';
 
 export const JOURNAL_ARTICLES: JournalArticle[] = [
   {
@@ -9,7 +14,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     subtitle: 'Why the world\'s most coveted emeralds carry an emerald sea within their crystalline heart.',
     date: 'OCTOBER 2024',
     readTime: '6 MIN READ',
-    coverImage: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=85',
+    coverImage: diamond5,
     excerpt: 'To hold a historic Colombian emerald is to witness an ancient geological mystery: pure beryl infused with chromium, forming the distinctive jardin that connoisseurs prize above absolute clarity.',
     author: 'Elena Vance, Senior Gemmological Curator',
     paragraphs: [
@@ -26,7 +31,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     subtitle: 'Why the most precious part of a royal Indian jewel was traditionally hidden from public sight.',
     date: 'DECEMBER 2024',
     readTime: '8 MIN READ',
-    coverImage: 'https://images.unsplash.com/photo-1611591475825-412f86641847?auto=format&fit=crop&w=1400&q=85',
+    coverImage: rare1,
     excerpt: 'In Mughal and Rajput court culture, the reverse of a necklace was not a structural backing, it was an intimate canvas meant exclusively for the wearer\'s skin.',
     author: 'Virendra Singh Rathore, Master Enamelist',
     paragraphs: [
@@ -43,7 +48,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     subtitle: 'Chemically pure carbon with zero detectable nitrogen: the rarest 1% of diamonds on earth.',
     date: 'JANUARY 2025',
     readTime: '5 MIN READ',
-    coverImage: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85',
+    coverImage: diamond2,
     excerpt: 'Golconda diamonds do not simply reflect light; they appear to hold liquid starlight within their limpid bodies, a quality that gem historians describe as water of first water.',
     author: 'Dr. Alistair Finch, Gemmological Historian',
     paragraphs: [
@@ -60,7 +65,7 @@ export const JOURNAL_ARTICLES: JournalArticle[] = [
     subtitle: 'Redefining imperial grandeur for the contemporary international bride.',
     date: 'FEBRUARY 2025',
     readTime: '7 MIN READ',
-    coverImage: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1400&q=85',
+    coverImage: necklace1,
     excerpt: 'Bridal jewellery today must balance supreme weight of tradition with lightness of wear. Discover how architectural articulating joints transform historical chokers into second skins.',
     author: 'Meera Sen-Gupta, Couture Director',
     paragraphs: [

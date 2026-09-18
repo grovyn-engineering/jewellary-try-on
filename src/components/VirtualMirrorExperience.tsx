@@ -561,51 +561,21 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="flex justify-center">
                   {/* Upload Portrait Option */}
                   <div
                     onClick={() => fileInputRef.current?.click()}
-                    className="cursor-pointer border border-[#272522]/15 hover:border-[#A98B58] bg-[#F7F3EC] p-8 text-center flex flex-col items-center justify-center transition-all group"
+                    className="cursor-pointer border border-[#272522]/15 hover:border-[#A98B58] bg-[#F7F3EC] p-10 text-center flex flex-col items-center justify-center transition-all group w-full max-w-sm"
                   >
-                    <div className="w-12 h-12 rounded-full border border-[#A98B58]/40 flex items-center justify-center text-[#A98B58] mb-3 group-hover:scale-105 transition-transform bg-[#FCFAF6]">
-                      <Upload size={20} />
+                    <div className="w-14 h-14 rounded-full border border-[#A98B58]/40 flex items-center justify-center text-[#A98B58] mb-4 group-hover:scale-105 transition-transform bg-[#FCFAF6]">
+                      <Upload size={22} />
                     </div>
                     <h3 className="font-serif text-lg text-[#272522]">Upload Portrait</h3>
                     <p className="text-[11px] text-[#6D655B] mt-1 font-light">From your desktop or camera roll</p>
                   </div>
-
-                  {/* Live Camera Option */}
-                  <div
-                    onClick={startCamera}
-                    className="cursor-pointer border border-[#272522]/15 hover:border-[#A98B58] bg-[#F7F3EC] p-8 text-center flex flex-col items-center justify-center transition-all group"
-                  >
-                    <div className="w-12 h-12 rounded-full border border-[#A98B58]/40 flex items-center justify-center text-[#A98B58] mb-3 group-hover:scale-105 transition-transform bg-[#FCFAF6]">
-                      <Camera size={20} />
-                    </div>
-                    <h3 className="font-serif text-lg text-[#272522]">Use Camera</h3>
-                    <p className="text-[11px] text-[#6D655B] mt-1 font-light">Real-time salon sensor alignment</p>
-                  </div>
                 </div>
 
-                {/* Or Select Salon Demo Model */}
-                <div className="pt-6 border-t border-[#272522]/10">
-                  <span className="text-[9px] tracking-[0.25em] uppercase text-[#6D655B] font-sans block text-center mb-4">
-                    OR PREVIEW ON SALON PATRON MODELS
-                  </span>
-                  <div className="grid grid-cols-3 gap-3">
-                    {DEMO_MODELS.map(model => (
-                      <div
-                        key={model.id}
-                        onClick={() => selectPortraitImage(model.url)}
-                        className="cursor-pointer border border-[#272522]/10 hover:border-[#A98B58] p-2 bg-[#F7F3EC] text-center transition-all"
-                      >
-                        <img src={model.url} alt={model.name} className="w-full aspect-[4/5] object-cover mb-2" />
-                        <span className="text-[10px] font-serif text-[#272522] block">{model.name}</span>
-                        <span className="text-[8px] text-[#6D655B] block">{model.tag}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+
               </div>
             )}
           </div>

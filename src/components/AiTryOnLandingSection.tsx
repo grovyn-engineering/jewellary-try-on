@@ -3,6 +3,8 @@ import { useShop } from '../context/ShopContext';
 import { PRODUCTS } from '../data/products';
 import { Sparkles, ArrowRight, Camera, Upload, Eye } from 'lucide-react';
 import { ImageWithFallback } from './ImageWithFallback';
+import ladyImg from '../images/lady.png';
+import ladyNeckImg from '../images/ladyneck.png';
 
 export const AiTryOnLandingSection: React.FC = () => {
   const { openTryOnForProduct, navigate } = useShop();
@@ -15,7 +17,7 @@ export const AiTryOnLandingSection: React.FC = () => {
 
   return (
     <section className="relative min-h-[92vh] sm:min-h-screen w-full bg-[#F1EEE7] text-[#171717] overflow-hidden flex flex-col justify-between py-24 sm:py-32 px-6 md:px-12 lg:px-20 select-none">
-      
+
       {/* Background Architectural Grid */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.04] bg-[radial-gradient(#171717_1px,transparent_1px)] [background-size:24px_24px]" />
 
@@ -42,10 +44,10 @@ export const AiTryOnLandingSection: React.FC = () => {
 
       {/* Center Stage: Huge Overlapping Typography + Large Campaign Portrait with Layered Jewel */}
       <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center flex-1 my-auto">
-        
+
         {/* Left Column: Monumental "SEE IT ON YOU" Typography & Action Suite */}
         <div className="lg:col-span-6 space-y-8 z-20">
-          
+
           <div className="space-y-0.5">
             <span className="text-[9.5px] font-mono tracking-[0.35em] uppercase text-[#0D6B58] font-bold block mb-2">
               REAL-TIME ANATOMICAL DRAPE
@@ -77,11 +79,10 @@ export const AiTryOnLandingSection: React.FC = () => {
                 <button
                   key={j.slug}
                   onClick={() => setActiveJewelSlug(j.slug)}
-                  className={`px-3 py-1.5 text-[9px] font-mono tracking-wider transition-all border ${
-                    activeJewelSlug === j.slug
-                      ? 'border-[#073B32] bg-[#073B32] text-white font-semibold shadow-xs'
-                      : 'border-[#171717]/20 bg-[#F8F5EE] text-[#5F5A52] hover:border-[#171717]'
-                  }`}
+                  className={`px-3 py-1.5 text-[9px] font-mono tracking-wider transition-all border ${activeJewelSlug === j.slug
+                    ? 'border-[#073B32] bg-[#073B32] text-white font-semibold shadow-xs'
+                    : 'border-[#171717]/20 bg-[#F8F5EE] text-[#5F5A52] hover:border-[#171717]'
+                    }`}
                 >
                   {j.label}
                 </button>
@@ -119,7 +120,7 @@ export const AiTryOnLandingSection: React.FC = () => {
 
         {/* Right Column: Monumental Portrait with Physical Layered Jewel & Light Sweep */}
         <div className="lg:col-span-6 relative flex items-center justify-center">
-          
+
           {/* Main Campaign Frame */}
           <div
             onClick={() => openTryOnForProduct(selectedProduct)}
@@ -128,74 +129,35 @@ export const AiTryOnLandingSection: React.FC = () => {
             {/* Elegant Muse Portrait */}
             <div className={`w-full h-full relative transition-transform duration-700 ease-out ${isCtaHovered ? 'scale-105' : 'scale-100'}`}>
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85"
-                alt="Haute Joaillerie Portrait"
-                className="w-full h-full object-cover grayscale-[0.15] contrast-105"
+                src={ladyNeckImg}
+                alt="Lady with Necklace"
+                className="w-full h-full object-cover object-top contrast-105"
               />
-              {/* Soft Portrait Scrim */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#171717]/80 via-transparent to-transparent pointer-events-none" />
+              {/* Soft scrim so lady portrait on top pops */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#171717]/55 via-transparent to-[#171717]/75 pointer-events-none" />
             </div>
 
-            {/* Layered Physical Jewellery Drape on Portrait */}
-            <div
-              className={`absolute inset-x-8 top-[38%] aspect-square flex items-center justify-center transition-all duration-700 ease-out ${
-                isCtaHovered ? 'scale-110 filter drop-shadow-[0_20px_40px_rgba(13,107,88,0.5)]' : 'scale-100 filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)]'
-              }`}
-            >
-              <ImageWithFallback
-                src={selectedProduct.images[0]}
-                alt={selectedProduct.title}
-                className="w-full h-full object-contain"
-              />
 
-              {/* Light passing across jewel on hover */}
-              <div
-                className={`absolute inset-0 pointer-events-none mix-blend-overlay transition-opacity duration-500 ${
-                  isCtaHovered ? 'opacity-100' : 'opacity-0'
-                }`}
-                style={{
-                  background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, transparent 65%)'
-                }}
-              />
-            </div>
-
-            {/* Floating Top Interactive Badge */}
-            <div className="absolute top-5 left-5 bg-[#FFFFFF]/90 backdrop-blur-md px-3.5 py-1.5 border border-[#171717]/10 text-[9px] font-mono tracking-[0.25em] text-[#171717] flex items-center gap-2">
+            {/* Floating Live Badge */}
+            <div className="absolute top-5 left-5 z-20 bg-[#FFFFFF]/90 backdrop-blur-md px-3 py-1.5 border border-[#171717]/10 text-[9px] font-mono tracking-[0.22em] text-[#171717] flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#0D6B58] animate-pulse" />
-              <span>LIVE OPTICAL MIRROR ACTIVE</span>
+              <span>LIVE MIRROR</span>
             </div>
 
-            {/* Bottom Caption Inside Frame */}
-            <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[#FFFFFF] z-10">
-              <div>
-                <span className="text-[8px] font-mono tracking-widest text-[#C6A56B] uppercase block">
-                  LAYERED ATELIER OBJECT
-                </span>
-                <p className="font-display text-xl text-white">
-                  {selectedProduct.title}
-                </p>
-              </div>
-              <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
-                <Eye size={16} className="text-white" />
-              </div>
-            </div>
+
           </div>
 
-          {/* Out-of-bounds Floating Secondary Jewel Asset */}
+          {/* Out-of-bounds Floating Lady Card */}
           <div
             onClick={() => openTryOnForProduct(selectedProduct)}
-            className="hidden sm:block absolute -bottom-6 -left-8 w-44 aspect-square bg-[#FFFFFF] border border-[#171717]/15 p-3 shadow-2xl cursor-pointer hover:scale-105 transition-transform"
+            className="hidden sm:block absolute -bottom-6 -left-8 w-44 aspect-[3/4] bg-[#FFFFFF] border border-[#171717]/15 overflow-hidden shadow-2xl cursor-pointer hover:scale-105 transition-transform"
           >
-            <div className="w-full h-4/5 flex items-center justify-center">
-              <ImageWithFallback
-                src={selectedProduct.images[0]}
-                alt="Macro detail"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="text-[8px] font-mono text-[#0D6B58] tracking-widest uppercase text-center pt-1 border-t border-[#171717]/10">
-              CLICK TO DRAPE
-            </div>
+            <ImageWithFallback
+              src={ladyImg}
+              alt="Lady portrait detail"
+              className="w-full h-full object-contain object-center"
+            />
+
           </div>
         </div>
       </div>

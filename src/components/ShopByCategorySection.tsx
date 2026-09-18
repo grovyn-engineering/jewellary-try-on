@@ -2,6 +2,19 @@ import React from 'react';
 import { useShop } from '../context/ShopContext';
 import { ArrowUpRight } from 'lucide-react';
 import { PRODUCTS } from '../data/products';
+import necklace1 from '../images/necklace1.jpg';
+import necklace2 from '../images/necklace2.jpg';
+import necklace3 from '../images/necklace3.jpg';
+import earrings1 from '../images/earinings1.jpg';
+import earrings2 from '../images/earings2.jpg';
+import bangles1 from '../images/bangles1.webp';
+import bangles2 from '../images/bangles2.jpeg';
+import diamond2 from '../images/diamond2.jpg';
+import diamond5 from '../images/diamond5.jpg';
+import solitaires1 from '../images/solitaires1.jpeg';
+import solitaires3 from '../images/solitaires3.webp';
+import rare1 from '../images/rare1.jpg';
+import rare2 from '../images/rare2.jpg';
 
 interface CategoryItem {
   id: string;
@@ -21,7 +34,7 @@ export const ShopByCategorySection: React.FC = () => {
       name: 'High Jewellery',
       path: '/collections/high-jewellery',
       count: PRODUCTS.filter(p => p.category === 'high-jewellery' || p.featured).length || 6,
-      image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=85',
+      image: rare1,
       description: 'Pièces uniques and museum colliers'
     },
     {
@@ -29,7 +42,7 @@ export const ShopByCategorySection: React.FC = () => {
       name: 'Necklaces',
       path: '/collections/necklaces',
       count: PRODUCTS.filter(p => p.category === 'necklaces' || p.category === 'high-jewellery').length || 7,
-      image: 'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=800&q=85',
+      image: necklace1,
       description: 'Architectural pendants and cascading collars'
     },
     {
@@ -37,7 +50,7 @@ export const ShopByCategorySection: React.FC = () => {
       name: 'Earrings',
       path: '/collections/earrings',
       count: PRODUCTS.filter(p => p.category === 'earrings').length || 8,
-      image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=85',
+      image: earrings1,
       description: 'Chandelier drops, ear cuffs, and studs'
     },
     {
@@ -45,7 +58,7 @@ export const ShopByCategorySection: React.FC = () => {
       name: 'Rings',
       path: '/collections/rings',
       count: PRODUCTS.filter(p => p.category === 'rings').length || 6,
-      image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=85',
+      image: diamond5,
       description: 'Sovereign solitaires and cocktail bands'
     },
     {
@@ -53,7 +66,7 @@ export const ShopByCategorySection: React.FC = () => {
       name: 'Bracelets',
       path: '/collections/bracelets',
       count: PRODUCTS.filter(p => p.category === 'bracelets').length || 4,
-      image: 'https://images.unsplash.com/photo-1611591475883-9cf65bc3e284?auto=format&fit=crop&w=800&q=85',
+      image: bangles1,
       description: 'Articulated cuffs and diamond tennis rows'
     },
     {
@@ -61,7 +74,7 @@ export const ShopByCategorySection: React.FC = () => {
       name: 'Bangles',
       path: '/collections/bangles',
       count: PRODUCTS.filter(p => p.category === 'bangles' || p.category === 'bracelets').length || 5,
-      image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=85',
+      image: bangles2,
       description: 'Imperial Jadau kadas and pave spirals'
     },
     {
@@ -69,7 +82,7 @@ export const ShopByCategorySection: React.FC = () => {
       name: 'Sets',
       path: '/collections/sets',
       count: 3,
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=85',
+      image: necklace2,
       description: 'Coordinated parures for celebratory gala'
     },
     {
@@ -77,7 +90,7 @@ export const ShopByCategorySection: React.FC = () => {
       name: 'Solitaires',
       path: '/collections/solitaire',
       count: 4,
-      image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=85',
+      image: solitaires1,
       description: 'Type IIa Golconda diamonds and untreated cuts'
     },
     {
@@ -85,7 +98,7 @@ export const ShopByCategorySection: React.FC = () => {
       name: 'Bridal',
       path: '/collections/bridal',
       count: 6,
-      image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=85',
+      image: necklace3,
       description: 'Heirloom trousseau and imperial jadau'
     },
     {
@@ -93,7 +106,7 @@ export const ShopByCategorySection: React.FC = () => {
       name: 'Gemstones',
       path: '/collections/gemstones',
       count: 8,
-      image: 'https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=800&q=85',
+      image: solitaires3,
       description: 'Muzo emeralds, Burma rubies, and Kashmir sapphires'
     }
   ];

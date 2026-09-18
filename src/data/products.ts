@@ -1,5 +1,34 @@
 import { Product } from '../types';
 
+// Necklace images
+import necklace1 from '../images/necklace1.jpg';
+import necklace2 from '../images/necklace2.jpg';
+import necklace3 from '../images/necklace3.jpg';
+
+// Earring images
+import earrings1 from '../images/earinings1.jpg';
+import earrings2 from '../images/earings2.jpg';
+import earrings3 from '../images/earings3.jpg';
+
+// Bangle images
+import bangles1 from '../images/bangles1.webp';
+import bangles2 from '../images/bangles2.jpeg';
+import bangles3 from '../images/bangles3.jpeg';
+
+// Diamond / Ring images
+import diamond2 from '../images/diamond2.jpg';
+import diamond3 from '../images/diamond3.jpeg';
+import diamond5 from '../images/diamond5.jpg';
+
+// Solitaire images
+import solitaires1 from '../images/solitaires1.jpeg';
+import solitaires2 from '../images/solitaires2.jpeg';
+import solitaires3 from '../images/solitaires3.webp';
+
+// Rare / High Jewellery images
+import rare1 from '../images/rare1.jpg';
+import rare2 from '../images/rare2.jpg';
+
 export const PRODUCTS: Product[] = [
   {
     id: 'aur-01',
@@ -16,13 +45,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Muzo Mine, Colombia and Golconda alluvial cut diamonds',
     craftsmanshipHours: 340,
     certification: 'GIA & Gubelin Dual Certified',
-    images: [
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=85',
+    images: [necklace1, necklace2, necklace3],
+    macroImage: rare1,
+    modelImage: rare2,
     specs: [
       { type: 'Emeralds', weight: '14.82 ct total', origin: 'Muzo, Colombia', clarity: 'Minor oil enhancement', color: 'Deep Vivid Green', cut: 'Oval and Cushion Faceted' },
       { type: 'Diamonds', weight: '8.40 ct total', origin: 'Golconda Heritage Cut', clarity: 'VVS1', color: 'D-E Colorless', cut: 'Brilliant and Rose Cut' },
@@ -53,12 +78,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Old Collection Persian Gulf natural pearls and Bikaner uncut diamonds',
     craftsmanshipHours: 490,
     certification: 'GIA Pearl & Diamond Identification Report',
-    images: [
-      'https://images.unsplash.com/photo-1611591475825-412f86641847?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1400&q=85',
+    images: [necklace2, necklace3],
+    macroImage: necklace1,
+    modelImage: rare1,
     specs: [
       { type: 'Polki Diamonds', weight: '22.15 ct total', origin: 'Rajasthan Heritage', clarity: 'Natural Uncut VVS Equiv', color: 'Antique Warm White', cut: 'Rose Polki' },
       { type: 'Basra Pearls', weight: '168.0 ct total', origin: 'Persian Gulf Historic', clarity: 'Deep Oriental Lustre', color: 'Warm Cream Iridescent', cut: 'Natural Baroque Spheroid' },
@@ -89,12 +111,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Kagem Mine, Zambia and Antwerp precision cut diamonds',
     craftsmanshipHours: 180,
     certification: 'SSEF Swiss Gemmological Institute Certified',
-    images: [
-      'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1400&q=85',
+    images: [earrings1, earrings2],
+    macroImage: earrings3,
+    modelImage: earrings1,
     specs: [
       { type: 'Emeralds', weight: '11.45 ct pair', origin: 'Zambia', clarity: 'Insignificant oil', color: 'Intense Bluish Green', cut: 'Step Octagonal' },
       { type: 'Diamonds', weight: '5.20 ct total', origin: 'De Beers Sourced', clarity: 'VVS2', color: 'F Colorless', cut: 'Marquise and Pear' }
@@ -124,12 +143,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Hand-beaten in the Aurevya Jaipur atelier',
     craftsmanshipHours: 210,
     certification: 'BIS Hallmark & Aurevya Atelier Seal',
-    images: [
-      'https://images.unsplash.com/photo-1611591475825-412f86641847?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1400&q=85',
+    images: [bangles1, bangles2],
+    macroImage: bangles3,
+    modelImage: bangles1,
     specs: [
       { type: 'Polki Diamonds', weight: '6.80 ct total', origin: 'Bikaner Old Cut', clarity: 'Eye clean natural', color: 'Warm Champagne Tone', cut: 'Custom Jaali Bezel' },
       { type: 'Burma Rubies', weight: '2.40 ct cabochons', origin: 'Mogok, Myanmar', clarity: 'Translucent silk inclusions', color: 'Pigeon Blood Red', cut: 'Fluted Cabochon' }
@@ -159,12 +175,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Ethically mined in Botswana, precision faceted in Tel Aviv',
     craftsmanshipHours: 120,
     certification: 'GIA Certified Triple Excellent',
-    images: [
-      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1400&q=85',
+    images: [solitaires1, solitaires2],
+    macroImage: solitaires3,
+    modelImage: diamond2,
     specs: [
       { type: 'Center Diamond', weight: '5.24 ct', origin: 'Botswana Type IIa', clarity: 'VVS1 Flawless', color: 'D Purest Colorless', cut: 'Modified Cushion Brilliant' },
       { type: 'Side Baguettes', weight: '1.10 ct pair', origin: 'Ethical Supply Chain', clarity: 'IF Internally Flawless', color: 'D Color', cut: 'Tapered Step Baguette' }
@@ -194,12 +207,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Mogok Stone Tract, Myanmar',
     craftsmanshipHours: 95,
     certification: 'GRS Swiss Gem Research Certified',
-    images: [
-      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=85',
+    images: [diamond3, diamond5],
+    macroImage: diamond2,
+    modelImage: rare2,
     specs: [
       { type: 'Burma Ruby', weight: '4.60 ct', origin: 'Mogok, Burma (Unheated)', clarity: 'VVS Clarity Grade', color: 'Pigeon Blood Red', cut: 'Oval Mixed Cut' },
       { type: 'Halo Diamonds', weight: '1.45 ct total', origin: 'Kimberley Certified', clarity: 'VS1', color: 'E-F', cut: 'Micro Pavé Brilliant' }
@@ -229,12 +239,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Crafted by master jadau artisans in Hyderabad',
     craftsmanshipHours: 140,
     certification: 'Aurevya Authenticity Dossier',
-    images: [
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1400&q=85',
+    images: [earrings2, earrings3],
+    macroImage: earrings1,
+    modelImage: earrings2,
     specs: [
       { type: 'Polki Diamonds', weight: '7.20 ct total', origin: 'Bikaner Heritage', clarity: 'Uncut translucent', color: 'Pale Champagne', cut: 'Antique Foil Back' },
       { type: 'South Sea Pearls', weight: '22.0 ct pair', origin: 'Broome, Australia', clarity: 'Mirror lustre', color: 'Warm Golden White', cut: 'Teardrop Natural' }
@@ -264,12 +271,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Royal provenance inspired archives of Rajasthan and Patiala',
     craftsmanshipHours: 420,
     certification: 'GIA & IGI Certified Atelier Masterpiece',
-    images: [
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1611591475825-412f86641847?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=85',
+    images: [necklace3, necklace1],
+    macroImage: rare2,
+    modelImage: rare1,
     specs: [
       { type: 'Polki Diamonds', weight: '28.40 ct total', origin: 'Historical Indian Cuts', clarity: 'Natural Clean Slice', color: 'Silvery Light Golden', cut: 'Hand-faceted Jadau' },
       { type: 'Panjshir Emeralds', weight: '36.50 ct fluted beads', origin: 'Panjshir Valley', clarity: 'Translucent Emerald Jardin', color: 'Deep Pine Green', cut: 'Hand-drilled Fluted' }
@@ -299,12 +303,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Ratnapura, Sri Lanka',
     craftsmanshipHours: 85,
     certification: 'Gubelin Gem Lab Dossier',
-    images: [
-      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1400&q=85',
+    images: [diamond5, diamond2],
+    macroImage: diamond3,
+    modelImage: solitaires3,
     specs: [
       { type: 'Ceylon Sapphire', weight: '7.12 ct', origin: 'Ratnapura, Sri Lanka (No Heat)', clarity: 'Internally Flawless Grade', color: 'Royal Blue Velvety', cut: 'Cushion Mixed Cut' },
       { type: 'Side Diamonds', weight: '1.20 ct pair', origin: 'Canada Mark Ethical', clarity: 'VVS1', color: 'E Color', cut: 'Trilliant Cut' }
@@ -334,12 +335,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Precision faceted and laser-inscribed',
     craftsmanshipHours: 40,
     certification: 'GIA Dual Dossier Reports',
-    images: [
-      'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1400&q=85',
+    images: [solitaires2, solitaires3],
+    macroImage: solitaires1,
+    modelImage: diamond3,
     specs: [
       { type: 'Twin Diamonds', weight: '3.10 ct total (1.55 ct each)', origin: 'De Beers Sourced', clarity: 'VVS2', color: 'E Colorless', cut: 'Triple Excellent Cut' }
     ],
@@ -368,12 +366,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Mie Prefecture Akoya pearls and Colombian private collection emerald',
     craftsmanshipHours: 290,
     certification: 'GIA & Mikimoto Standards Pearl Evaluation',
-    images: [
-      'https://images.unsplash.com/photo-1611591475825-412f86641847?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1400&q=85',
+    images: [necklace1, necklace3],
+    macroImage: necklace2,
+    modelImage: rare2,
     specs: [
       { type: 'Akoya Pearls', weight: '240 matched pearls (8.0-8.5mm)', origin: 'Japan', clarity: 'AAA Mirror Lustre', color: 'White with Rose Overtone', cut: 'Perfect Spherical' },
       { type: 'Plaque Emerald', weight: '9.50 ct', origin: 'Muzo, Colombia', clarity: 'Minor cedar oil', color: 'Vivid Bluish Green', cut: 'Octagonal Step' }
@@ -403,12 +398,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Temple artisans of Thanjavur and Aurevya Bangalore atelier',
     craftsmanshipHours: 260,
     certification: 'BIS Hallmark 916 with Master Artisan Touchmark',
-    images: [
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1611591475825-412f86641847?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1400&q=85',
+    images: [bangles2, bangles3],
+    macroImage: bangles1,
+    modelImage: bangles2,
     specs: [
       { type: 'Cabochon Rubies', weight: '8.60 ct total', origin: 'Old Burma Stock', clarity: 'Translucent glowing', color: 'Raspberry Red', cut: 'Smooth Oval Cabochons' },
       { type: 'Gold Sculpting', weight: '76.0 g pure 22K', origin: 'Certified Responsible Gold', clarity: 'Antique hand planished', color: 'Deep 22K Antique Satin', cut: 'Repoussé & Chasing' }
@@ -438,12 +430,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Historic Deccan Diamond Valley cut',
     craftsmanshipHours: 70,
     certification: 'GIA Diamond Dossier',
-    images: [
-      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1400&q=85',
+    images: [diamond2, solitaires1],
+    macroImage: solitaires2,
+    modelImage: rare1,
     specs: [
       { type: 'Rose Cut Diamond', weight: '2.85 ct', origin: 'Historic Golconda Type IIa', clarity: 'VVS1', color: 'F Colorless', cut: 'Dutch Rose Cut 24 Facets' }
     ],
@@ -472,12 +461,9 @@ export const PRODUCTS: Product[] = [
     provenance: 'Antwerp polished ethical rough diamonds',
     craftsmanshipHours: 165,
     certification: 'GIA Certified Pair Reports',
-    images: [
-      'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1400&q=85',
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1400&q=85'
-    ],
-    macroImage: 'https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=1400&q=85',
-    modelImage: 'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1400&q=85',
+    images: [earrings3, earrings1],
+    macroImage: earrings2,
+    modelImage: earrings3,
     specs: [
       { type: 'Terminal Pears', weight: '6.02 ct pair (3.01 ct each)', origin: 'Botswana Ethical', clarity: 'VVS2', color: 'D Pure Colorless', cut: 'Pear Brilliant' },
       { type: 'Upper Asschers', weight: '2.40 ct pair', origin: 'Canada Mark', clarity: 'IF Internally Flawless', color: 'E Color', cut: 'Square Emerald Asscher' }

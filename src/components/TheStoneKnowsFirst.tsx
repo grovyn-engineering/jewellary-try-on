@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useShop } from '../context/ShopContext';
 import { RotateCw, ArrowRight } from 'lucide-react';
 import { ImageWithFallback } from './ImageWithFallback';
+import diamond2 from '../images/diamond2.jpg';
+import diamond3 from '../images/diamond3.jpeg';
+import diamond5 from '../images/diamond5.jpg';
+import solitaires1 from '../images/solitaires1.jpeg';
 
 export const TheStoneKnowsFirst: React.FC = () => {
   const { navigate, setAtmosphereGemstone } = useShop();
@@ -11,25 +15,25 @@ export const TheStoneKnowsFirst: React.FC = () => {
     {
       angle: '0°',
       label: 'FACE & TABLE',
-      image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=85',
+      image: diamond2,
       desc: 'Symmetric octagonal table allowing deep light penetration without internal blackout.'
     },
     {
       angle: '90°',
       label: 'CROWN PROFILE',
-      image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=85',
+      image: diamond3,
       desc: 'Steeply beveled step facets creating hypnotic hall-of-mirrors reflection.'
     },
     {
       angle: '180°',
       label: 'PAVILION DEPTH',
-      image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=85',
+      image: diamond5,
       desc: 'Deep culet geometry engineered to retain saturated chromium green.'
     },
     {
       angle: '270°',
       label: 'JARDIN INCLUSION MAP',
-      image: 'https://images.unsplash.com/photo-1611591475825-412f86641847?auto=format&fit=crop&w=1200&q=85',
+      image: solitaires1,
       desc: 'Natural microscopic fluid veining proving 65-million-year geological origin.'
     }
   ];

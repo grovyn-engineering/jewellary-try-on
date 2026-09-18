@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useShop } from '../context/ShopContext';
 import { Search, Heart, ShoppingBag, X, Sparkles, ArrowRight, ShieldCheck, Compass, MapPin, Phone } from 'lucide-react';
+import necklace1 from '../images/necklace1.jpg';
+import necklace2 from '../images/necklace2.jpg';
+import earrings1 from '../images/earinings1.jpg';
+import earrings2 from '../images/earings2.jpg';
+import diamond2 from '../images/diamond2.jpg';
+import solitaires2 from '../images/solitaires2.jpeg';
+import rare1 from '../images/rare1.jpg';
+import rare2 from '../images/rare2.jpg';
 
 interface PreviewInfo {
   tag: string;
@@ -32,7 +40,7 @@ export const LuxuryHeader: React.FC = () => {
     tag: 'HIGH JEWELLERY',
     title: 'The Noor-E-Nizam',
     subtitle: '14.82 ct Colombian Muzo Emerald, 340 Atelier Hours',
-    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=85'
+    image: rare1
   });
 
   useEffect(() => {
@@ -53,7 +61,7 @@ export const LuxuryHeader: React.FC = () => {
           tag: 'PIÈCES UNIQUES',
           title: 'Imperial Regalia & Colliers',
           subtitle: 'Certified Colombian emeralds and Golconda water diamonds',
-          image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=85'
+          image: rare1
         });
         break;
       case 'COLLECTIONS':
@@ -61,7 +69,7 @@ export const LuxuryHeader: React.FC = () => {
           tag: 'COLLECTIONS',
           title: 'The Sovereign & Esperia Edits',
           subtitle: 'Contemporary architectural high jewellery for modern gala',
-          image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=85'
+          image: necklace1
         });
         break;
       case 'TRY_ON':
@@ -69,7 +77,7 @@ export const LuxuryHeader: React.FC = () => {
           tag: 'SEE IT ON YOU',
           title: 'AI Haute Fitting Mirror',
           subtitle: 'Real-time anatomical draping of high jewellery colliers and solitaires',
-          image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=85'
+          image: rare2
         });
         break;
       case 'BESPOKE':
@@ -77,7 +85,7 @@ export const LuxuryHeader: React.FC = () => {
           tag: 'THE ATELIER',
           title: 'Bespoke Private Commissions',
           subtitle: 'From initial gouache rendering to permanent touchmark',
-          image: 'https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?auto=format&fit=crop&w=1200&q=85'
+          image: solitaires2
         });
         break;
       case 'RINGS':
@@ -85,7 +93,7 @@ export const LuxuryHeader: React.FC = () => {
           tag: 'SOLITAIRE & RINGS',
           title: 'Sovereign Ring Architecture',
           subtitle: 'Micro-bezel settings with flawless center gems',
-          image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=85'
+          image: diamond2
         });
         break;
       case 'EARRINGS':
@@ -93,7 +101,7 @@ export const LuxuryHeader: React.FC = () => {
           tag: 'EAR PIECES',
           title: 'Chandelier Drops & Studs',
           subtitle: 'Cascading briolette emeralds and natural Basra pearls',
-          image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=85'
+          image: earrings1
         });
         break;
       case 'THE_HOUSE':
@@ -101,7 +109,7 @@ export const LuxuryHeader: React.FC = () => {
           tag: 'HERITAGE',
           title: 'The House of Aurevya',
           subtitle: 'Where Golconda diamond heritage meets Parisian architectural discipline',
-          image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=85'
+          image: necklace2
         });
         break;
       default:
@@ -118,14 +126,13 @@ export const LuxuryHeader: React.FC = () => {
     <>
       {/* Global Editorial Navigation Bar */}
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${isScrolled
             ? 'py-3.5 px-6 md:px-12 bg-[#F8F5EE]/95 backdrop-blur-md border-b border-[#171717]/10 shadow-[0_4px_24px_rgba(23,23,23,0.04)]'
             : 'py-6 px-6 md:px-12 bg-transparent'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between relative">
-          
+
           {/* Left: MENU trigger & optional internal breadcrumb */}
           <div className="flex items-center gap-4">
             <button
@@ -222,7 +229,7 @@ export const LuxuryHeader: React.FC = () => {
       {/* Full-Screen Private Maison Navigation Canvas */}
       {editorialMenuOpen && (
         <div className="fixed inset-0 z-50 bg-[#F8F5EE] text-[#171717] flex flex-col justify-between p-6 sm:p-10 md:p-14 animate-in fade-in duration-300 overflow-y-auto">
-          
+
           {/* Menu Top Bar: Return to Home Wordmark & Close Button */}
           <div className="flex items-center justify-between border-b border-[#171717]/10 pb-5">
             <div
@@ -254,10 +261,10 @@ export const LuxuryHeader: React.FC = () => {
 
           {/* Menu Center Stage: 5 Structured Columns + Dynamic Visual Preview */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-8 my-auto">
-            
+
             {/* Columns 1-4: The 5 Human Brand Categories */}
             <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8">
-              
+
               {/* 1. DISCOVER */}
               <div className="space-y-4">
                 <span className="text-[9px] tracking-[0.3em] uppercase text-[#A98B58] font-sans font-semibold block border-b border-[#171717]/10 pb-2">
@@ -574,7 +581,7 @@ export const LuxuryHeader: React.FC = () => {
                 <span className="text-[8.5px] tracking-[0.3em] uppercase text-[#A98B58] font-sans font-medium block mb-3">
                   MAISON PREVIEW • {activePreview.tag}
                 </span>
-                
+
                 {/* Visual Frame */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#EEE8DE] border border-[#171717]/12 shadow-sm transition-all duration-500">
                   <img

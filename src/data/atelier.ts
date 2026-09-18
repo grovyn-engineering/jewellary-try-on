@@ -1,3 +1,13 @@
+import necklace2 from '../images/necklace2.jpg';
+import diamond2 from '../images/diamond2.jpg';
+import diamond3 from '../images/diamond3.jpeg';
+import diamond5 from '../images/diamond5.jpg';
+import solitaires1 from '../images/solitaires1.jpeg';
+import solitaires3 from '../images/solitaires3.webp';
+import bangles3 from '../images/bangles3.jpeg';
+import rare1 from '../images/rare1.jpg';
+import rare2 from '../images/rare2.jpg';
+
 export interface AtelierStage {
   step: string;
   title: string;
@@ -20,7 +30,7 @@ export const ATELIER_STAGES: AtelierStage[] = [
     technicalDetails: 'Spectroscopic analysis, origin verification via Gubelin/SSEF protocols, and thermal mapping of crystal lattice.',
     atelierNote: 'Our Head of Gem Sourcing travels directly to Muzo, Ratnapura, and Antwerp, selecting only stones with extraordinary internal life.',
     tool: 'Binocular Gemmological Microscope & Raman Spectroscope',
-    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=85'
+    image: diamond2
   },
   {
     step: 'STAGE 02',
@@ -31,7 +41,7 @@ export const ATELIER_STAGES: AtelierStage[] = [
     technicalDetails: '1:1 scale optical projection, hand-mixed mineral pigments, kinetic balance calculation for necklace curvature.',
     atelierNote: 'The gouache rendering remains alongside the craftsmen throughout the entire four-hundred-hour fabrication.',
     tool: 'Sable-Hair Brush N° 000 & Natural Ochre Pigments',
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1400&q=85'
+    image: necklace2
   },
   {
     step: 'STAGE 03',
@@ -42,7 +52,7 @@ export const ATELIER_STAGES: AtelierStage[] = [
     technicalDetails: 'Concealed hinge engineering, tension-tested bezels, and sovereign weight validation.',
     atelierNote: 'Our master goldsmiths represent fourth-generation lineages from Jaipur, Hyderabad, and Bengal.',
     tool: 'Jeweller\'s Saw, Piercing Needle & Anvil',
-    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1400&q=85'
+    image: solitaires1
   },
   {
     step: 'STAGE 04',
@@ -53,7 +63,7 @@ export const ATELIER_STAGES: AtelierStage[] = [
     technicalDetails: 'Temperature ramp regulation, natural lapis lazuli and cobalt oxides, zero-bubble vitreous melting.',
     atelierNote: 'Only two living master enamellers in Jaipur retain the secret formula for Aurevya imperial crimson.',
     tool: 'Muffle Kiln & Fine Stylus Engraver',
-    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85'
+    image: diamond5
   },
   {
     step: 'STAGE 05',
@@ -64,7 +74,7 @@ export const ATELIER_STAGES: AtelierStage[] = [
     technicalDetails: 'Pure 24K hyper-refined foil, micro-tamped gold setting walls, airtight gemstone seals.',
     atelierNote: 'No modern mechanical machine can replicate the tactile touch required to compress Jadau foil.',
     tool: 'Chisel-Tipped Salai & Agate Burnisher',
-    image: 'https://images.unsplash.com/photo-1611591475825-412f86641847?auto=format&fit=crop&w=1400&q=85'
+    image: bangles3
   },
   {
     step: 'STAGE 06',
@@ -75,7 +85,7 @@ export const ATELIER_STAGES: AtelierStage[] = [
     technicalDetails: 'Microscopic inspection under 40x magnification, ultrasonic cleansing, BIS hallmark touchmark application.',
     atelierNote: 'A single necklace undergoes seventeen independent polishing phases between setting tiers.',
     tool: 'Hand Agate Burnishers & Diamond Lapping Paste',
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1400&q=85'
+    image: solitaires3
   },
   {
     step: 'STAGE 07',
@@ -86,6 +96,6 @@ export const ATELIER_STAGES: AtelierStage[] = [
     technicalDetails: 'Individually serialized registry number, lifetime atelier care passport, diplomatic armored delivery.',
     atelierNote: 'Aurevya pieces are made once, designed to endure for centuries, passing down generations as sacred heirlooms.',
     tool: 'Archival Calligraphy Quill & Wax Seal Stamp',
-    image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=85'
+    image: rare1
   }
 ];
