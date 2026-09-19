@@ -7,9 +7,11 @@ Supports:
 """
 import os
 import re
+import time
 import tempfile
 import base64
 import json
+import traceback
 from typing import Optional, List
 from pydantic import BaseModel
 
@@ -265,110 +267,166 @@ async def try_on_endpoint(req: TryOnRequest):
     print(f"  ├─ VModel API Key Present: {bool(os.environ.get('VMODEL_API_KEY'))}")
     print(f"  └─ Gemini API Key Present: {bool(os.environ.get('GEMINI_API_KEY'))}")
 
-    # Try VModel AI V-Editor (task-based API with prompt-based jewellery placement)
+    # Try VModel AI — GPT Image 2 (multi-image reference: portrait + jewellery)
+    # GPT Image 2 accepts img_urls so it can SEE the actual jewellery design.
+    # Flux Kontext Pro is a fallback (single input_image, text-only editing).
     vmodel_key = os.environ.get("VMODEL_API_KEY", "").strip()
     if vmodel_key and HAS_REQUESTS:
         try:
             # Upload portrait to Cloudinary (VModel requires public HTTPS URLs)
             portrait_url = user_image if user_image.startswith("http") else _upload_image_to_cloudinary(user_image, "patrons")
-            
+
+            # Upload jewellery image to Cloudinary if it was sent as base64
+            jewel_url = None
+            if jewel_image:
+                jewel_url = jewel_image if jewel_image.startswith("http") else _upload_image_to_cloudinary(jewel_image, "jewels")
+
             if portrait_url:
                 print(f"  [VModel] Portrait URL: {portrait_url}")
-                
-                # Build detailed necklace-specific prompt for V-Editor with photorealism emphasis
-                vmodel_prompt = (
-                    f"Place a luxury {jewel_title} necklace on this person's neck and chest area. "
-                    f"Position the necklace naturally following the clavicle and neckline contours. "
-                    f"The necklace should drape realistically with natural weight distribution. "
-                    f"Render photorealistic diamond sparkle, gold metal reflections, and gemstone brilliance. "
-                    f"Lighting: {lighting}. "
-                    f"CRITICAL REQUIREMENTS: "
-                    f"1. Keep the person's exact pose, position, and body angle completely unchanged. "
-                    f"2. Preserve the background 100% exactly as original - same colors, lighting, and details. "
-                    f"3. Keep the person's face, skin tone, hair, and clothing absolutely identical to the original. "
-                    f"4. The output must look like a real professional photograph, not AI-generated. "
-                    f"5. ONLY add the necklace - everything else must remain pixel-perfect identical. "
-                    f"The final image should look like the person was photographed while naturally wearing this necklace."
-                )
-                
+                print(f"  [VModel] Jewel URL: {jewel_url}")
+
                 headers = {
                     "Authorization": f"Bearer {vmodel_key}",
                     "Content-Type": "application/json",
                 }
-                
-                # V-Editor version ID (from vmodel.ai/models/vmodel/v-editor)
+
+                # ── Nano Banana Pro (Gemini-based): multi-image, strong instruction following ──
+                # Passes BOTH the portrait AND the jewellery image via img_urls so the model
+                # can see the exact necklace design. Gemini models follow "keep person identical"
+                # instructions far more reliably than diffusion-based editors.
+                img_urls = [portrait_url]
+                if jewel_url:
+                    img_urls.append(jewel_url)
+
+                banana_prompt = (
+                    f"You are given two images. "
+                    f"Image 1 is a person's portrait photo. "
+                    f"Image 2 is a product photo of a luxury necklace called '{jewel_title}'. "
+                    f"Task: Place the EXACT necklace from Image 2 onto the person's neck in Image 1. "
+                    f"Copy every detail of the necklace design from Image 2 — the exact gemstones, metal, pattern, and style. "
+                    f"Position it naturally along the clavicle, draping with realistic weight under {lighting} light. "
+                    f"STRICT RULES: "
+                    f"1. The person's face, hair, skin tone, expression, body, clothing, and pose must remain 100% identical to Image 1. "
+                    f"2. The background must remain 100% identical to Image 1. "
+                    f"3. Only the necklace is added — nothing else changes. "
+                    f"4. The output must look like a real photograph, not AI-generated or illustrated. "
+                    f"Output: A single photo that looks exactly like Image 1 but with the necklace from Image 2 naturally worn."
+                )
+
+                # Try Nano Banana Pro first (stronger instruction following)
                 payload = {
-                    "version": "b7eae3b3e3091ec6ce78162ccf39fea6d1fa9aaf41ec1cac375441d1cdc3997f",
+                    "version": "3fdd8dc68ca68be11df2e56053a0448f94a94099808a1d61be42a7e86c6ca107",
                     "input": {
-                        "input_image": portrait_url,
-                        "prompt": vmodel_prompt,
-                        "result_resolution": 2,  # 2 = higher resolution
+                        "prompt": banana_prompt,
+                        "img_urls": img_urls,
+                        "output_format": "jpg",
+                        "aspect_ratio": "3:4",
                         "disable_safety_checker": False,
                     }
                 }
-                
-                print("  [VModel] Creating V-Editor task...")
+
+                print("  [VModel] Creating Nano Banana Pro task (Gemini multi-image, exact necklace reference)...")
                 vmodel_res = requests.post(
                     "https://api.vmodel.ai/api/tasks/v1/create",
                     json=payload,
                     headers=headers,
                     timeout=30
                 )
-                
+
+                # Fallback to Nano Banana if Pro fails
+                if vmodel_res.status_code not in (200, 201):
+                    print(f"  [VModel] Nano Banana Pro responded {vmodel_res.status_code}: {vmodel_res.text[:200]}")
+                    print(f"  [VModel] Falling back to Nano Banana...")
+                    payload["version"] = "44b9310748ecdccd1dfa60d68efe35b4a6291453d5edfad417075890d55a208f"
+                    vmodel_res = requests.post(
+                        "https://api.vmodel.ai/api/tasks/v1/create",
+                        json=payload,
+                        headers=headers,
+                        timeout=30
+                    )
+
                 if vmodel_res.status_code in (200, 201):
-                    res_data = vmodel_res.json()
-                    task_id = res_data.get("result", {}).get("task_id")
-                    
+                    try:
+                        res_data = vmodel_res.json()
+                    except Exception:
+                        res_data = {}
+                    print(f"  [VModel] Create task response: {res_data}")
+
+                    # result can be None on a 400 even if status_code slips through
+                    result_block = res_data.get("result") if res_data else None
+                    task_id = result_block.get("task_id") if result_block else None
+
                     if task_id:
                         print(f"  [VModel] Task created: {task_id}")
-                        print(f"  [VModel] Polling for result (max 2 minutes)...")
-                        
-                        # Poll for completion
-                        max_polls = 40
+                        print(f"  [VModel] Polling for result (max 3 minutes)...")
+
+                        max_polls = 60
                         poll_interval = 3
-                        
+
                         for attempt in range(max_polls):
-                            import time
                             time.sleep(poll_interval)
-                            
+
                             status_res = requests.get(
                                 f"https://api.vmodel.ai/api/tasks/v1/get/{task_id}",
                                 headers=headers,
                                 timeout=15
                             )
-                            
+
                             if status_res.status_code == 200:
                                 status_data = status_res.json()
                                 result = status_data.get("result", {})
                                 status = result.get("status")
-                                
+
                                 print(f"  [VModel] Poll {attempt + 1}/{max_polls}: {status}")
-                                
+
                                 if status == "succeeded":
                                     output = result.get("output", [])
                                     if output and len(output) > 0:
                                         output_url = output[0]
-                                        print(f"  [VModel] ✓ Success! Output: {output_url}")
+                                        print(f"  [VModel] ✓ Raw output: {output_url}")
+
+                                        # Re-upload to Cloudinary for a public URL.
+                                        # VModel output URLs are pre-signed CDN URLs —
+                                        # fetch WITHOUT auth headers (Bearer token causes 403).
+                                        public_url = output_url
+                                        try:
+                                            img_response = requests.get(
+                                                output_url,
+                                                timeout=30
+                                            )
+                                            if img_response.status_code == 200:
+                                                upload_result = cloudinary.uploader.upload(
+                                                    img_response.content,
+                                                    folder="aurevya_results",
+                                                    resource_type="image",
+                                                    format="jpg",
+                                                )
+                                                public_url = upload_result.get("secure_url") or upload_result.get("url") or output_url
+                                                print(f"  [VModel] ✓ Public URL: {public_url}")
+                                            else:
+                                                print(f"  [VModel] Could not download output: {img_response.status_code}")
+                                        except Exception as cdn_err:
+                                            print(f"  [VModel] Cloudinary re-upload notice: {cdn_err}")
+
                                         return {
                                             "success": True,
                                             "isRealAI": True,
-                                            "provider": "VModel AI V-Editor",
+                                            "provider": "VModel AI",
                                             "jewelTitle": jewel_title,
-                                            "outputImageUrl": output_url,
-                                            "notes": f"VModel V-Editor generated {jewel_title} with prompt-based placement in {lighting}.",
+                                            "outputImageUrl": public_url,
+                                            "notes": f"VModel generated {jewel_title} in {lighting}.",
                                             "message": f"Successfully fitted {jewel_title} with VModel AI.",
                                         }
                                     else:
                                         print(f"  [VModel] Task succeeded but no output found")
                                         break
                                 elif status == "failed":
-                                    error_msg = result.get("error", "Unknown error")
-                                    print(f"  [VModel] Task failed: {error_msg}")
+                                    print(f"  [VModel] Task failed: {result.get('error', 'Unknown')}")
                                     break
                                 elif status == "canceled":
-                                    print(f"  [VModel] Task was canceled")
+                                    print(f"  [VModel] Task canceled")
                                     break
-                        
+
                         print(f"  [VModel] Polling timeout after {max_polls * poll_interval}s")
                     else:
                         print(f"  [VModel] No task_id in response: {res_data}")
@@ -379,7 +437,6 @@ async def try_on_endpoint(req: TryOnRequest):
                 print("  [VModel] Skipping: portrait upload to Cloudinary failed")
         except Exception as vmodel_err:
             print(f"  [VModel] Exception: {vmodel_err}")
-            import traceback
             traceback.print_exc()
 
     # Fallback: graceful CSS overlay simulation

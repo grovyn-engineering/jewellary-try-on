@@ -230,6 +230,23 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
     e.target.value = '';
   };
 
+  // Convert image URL to base64
+  const imageUrlToBase64 = async (url: string): Promise<string> => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result as string);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    } catch (error) {
+      console.warn('Failed to convert image to base64:', error);
+      return url; // Fallback to original URL
+    }
+  };
+
   // Run the full AI generation flow (with server call & graceful fallback)
   const triggerAiProcessing = async () => {
     setActiveStep('step-4-processing');
@@ -249,6 +266,12 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
     // Minimum display time so the processing screen never flashes away instantly
     const minDisplay = new Promise<void>(resolve => setTimeout(resolve, 3000));
 
+    // Convert jewellery image to base64 if it's a local path
+    let jewelImageBase64 = selectedJewel.images[0];
+    if (!selectedJewel.images[0].startsWith('http') && !selectedJewel.images[0].startsWith('data:')) {
+      jewelImageBase64 = await imageUrlToBase64(selectedJewel.images[0]);
+    }
+
     // Await the backend response so aiRenderedImage is set BEFORE we transition
     try {
       const [res] = await Promise.all([
@@ -258,7 +281,7 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
           body: JSON.stringify({
             userImage,
             jewelTitle: selectedJewel.title,
-            jewelImage: selectedJewel.images[0],
+            jewelImage: jewelImageBase64,
             tryOnType: selectedJewel.tryOnType,
             lighting: lightingMode,
           }),
@@ -717,7 +740,7 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
                   onMouseUp={handleMouseUp}
                   onMouseMove={handleMouseMove}
                   onTouchMove={handleTouchMove}
-                  className="relative aspect-[3/4] sm:aspect-[4/5] w-full max-h-[70vh] mx-auto overflow-hidden border border-[#272522]/15 bg-[#EEE8DE] select-none cursor-ew-resize shadow-lg"
+                  className="relative aspect-[4/5] w-full max-h-[75vh] mx-auto overflow-hidden border border-[#272522]/15 bg-[#EEE8DE] select-none cursor-ew-resize shadow-lg"
                   style={{ filter: lightingFilters[lightingMode] }}
                 >
                   {/* Layer 1: BEFORE (Unadorned user portrait) */}
@@ -726,7 +749,7 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
                     alt="Original portrait"
                     referrerPolicy="no-referrer"
                     className="absolute inset-0 w-full h-full object-cover"
-                    style={{ transform: `scale(${zoomLevel})` }}
+                    style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'center center', objectPosition: '50% 20%' }}
                   />
 
                   {/* Layer 2: AFTER (Integrated Jewel Overlay or AI Generated Render) */}
@@ -740,7 +763,7 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
                         alt="AI Virtual Fitting"
                         referrerPolicy="no-referrer"
                         className="absolute inset-0 w-full h-full object-cover"
-                        style={{ transform: `scale(${zoomLevel})` }}
+                        style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'center center', objectPosition: '50% 20%' }}
                       />
                     ) : (
                       <>
@@ -749,7 +772,7 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
                           alt="Transformed portrait"
                           referrerPolicy="no-referrer"
                           className="absolute inset-0 w-full h-full object-cover"
-                          style={{ transform: `scale(${zoomLevel})` }}
+                          style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'center center', objectPosition: '50% 20%' }}
                         />
 
                         {/* Necklace Placement - Clavicle & Decolletage Draping */}
