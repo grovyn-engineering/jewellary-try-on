@@ -3,21 +3,24 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: aurevya-frontend
     restart: always
     ports:
-      - "80:80"
-    depends_on:
-      photo-check-backend:
-        condition: service_healthy
+      - "80"
     networks:
-      - aurevya-net
+      - dokploy-network
+    depends_on:
+      - photo-check-backend
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.aurevya-app.rule=Host(`your-domain.com`)"
+      - "traefik.http.routers.aurevya-app.entrypoints=websecure"
+      - "traefik.http.routers.aurevya-app.tls.certResolver=letsencrypt"
+      - "traefik.http.services.aurevya-app.loadbalancer.server.port=80"
 
   photo-check-backend:
     build:
       context: ./backend/velura-photo-check
       dockerfile: Dockerfile
-    container_name: aurevya-photo-check
     restart: unless-stopped
     expose:
       - "8000"
@@ -28,8 +31,6 @@ services:
       - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY:-}
       - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET:-}
       - GEMINI_API_KEY=${GEMINI_API_KEY:-}
-    env_file:
-      - ./backend/.env
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/healthz"]
       interval: 30s
@@ -37,8 +38,8 @@ services:
       retries: 3
       start_period: 60s
     networks:
-      - aurevya-net
+      - dokploy-network
 
 networks:
-  aurevya-net:
-    driver: bridge
+  dokploy-network:
+    external: true
