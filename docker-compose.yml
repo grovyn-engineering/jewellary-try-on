@@ -12,7 +12,7 @@ services:
       - photo-check-backend
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.aurevya-app.rule=Host(`nishhair.grovyn.in`)"
+      - "traefik.http.routers.aurevya-app.rule=Host(`Jewel.grovyn.in`)"
       - "traefik.http.routers.aurevya-app.entrypoints=websecure"
       - "traefik.http.routers.aurevya-app.tls.certResolver=letsencrypt"
       - "traefik.http.services.aurevya-app.loadbalancer.server.port=80"
