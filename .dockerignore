@@ -1,0 +1,28 @@
+# Node dependencies & build outputs
+node_modules
+dist
+dist-ssr
+*.log
+
+# Version control & editor
+.git
+.gitignore
+.vscode
+.idea
+.DS_Store
+
+# Sensitive environment files
+.env
+.env.local
+.env.*.local
+
+# Backend (built separately by docker-compose)
+backend/
+
+# Documentation
+README.md
+*.md
+
+# Test files
+*.test.*
+*.spec.*

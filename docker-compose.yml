@@ -1,0 +1,44 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aurevya-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      photo-check-backend:
+        condition: service_healthy
+    networks:
+      - aurevya-net
+
+  photo-check-backend:
+    build:
+      context: ./backend/velura-photo-check
+      dockerfile: Dockerfile
+    container_name: aurevya-photo-check
+    restart: unless-stopped
+    expose:
+      - "8000"
+    environment:
+      - ALLOWED_ORIGINS=*
+      - VMODEL_API_KEY=${VMODEL_API_KEY:-}
+      - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME:-}
+      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY:-}
+      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+    env_file:
+      - ./backend/.env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - aurevya-net
+
+networks:
+  aurevya-net:
+    driver: bridge
