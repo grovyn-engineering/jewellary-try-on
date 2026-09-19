@@ -3,6 +3,13 @@ import { useShop } from '../context/ShopContext';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from './ImageWithFallback';
 
+import weddingImg from '../images/moment_wedding.jpg';
+import engagementImg from '../images/moment_engagement.jpg';
+import redcarpetImg from '../images/moment_redcarpet.jpg';
+import galaImg from '../images/moment_gala.jpg';
+import anniversaryImg from '../images/moment_anniversary.jpg';
+import privateImg from '../images/bangles1.webp';
+
 export const WhatIsTheMomentSection: React.FC = () => {
   const { navigate, setActiveOccasion } = useShop();
 
@@ -12,7 +19,7 @@ export const WhatIsTheMomentSection: React.FC = () => {
       title: 'THE WEDDING',
       tag: 'Imperial Dynastic Union',
       desc: 'Tiered Basra pearls, Jadau polki centerpieces, and polychrome reverse Meenakari.',
-      image: 'https://images.unsplash.com/photo-1611591475825-412f86641847?auto=format&fit=crop&w=1200&q=85',
+      image: weddingImg,
       route: '/collections/bridal'
     },
     {
@@ -20,7 +27,7 @@ export const WhatIsTheMomentSection: React.FC = () => {
       title: 'THE ENGAGEMENT',
       tag: 'Type IIa Alluvial Solitaires',
       desc: 'Golconda cut diamonds exhibiting crystalline water transparency with zero fluorescence.',
-      image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=85',
+      image: engagementImg,
       route: '/collections/solitaires'
     },
     {
@@ -28,7 +35,7 @@ export const WhatIsTheMomentSection: React.FC = () => {
       title: 'THE RED CARPET',
       tag: 'Kinetic High Fire',
       desc: 'Articulated chandelier drops that command flash photography and evening movement.',
-      image: 'https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=1200&q=85',
+      image: redcarpetImg,
       route: '/collections/high-jewellery'
     },
     {
@@ -36,7 +43,7 @@ export const WhatIsTheMomentSection: React.FC = () => {
       title: 'THE GALA',
       tag: 'Museum-Tier Regalia',
       desc: 'Architectural collars featuring rare Muzo cabochon emeralds and custom gold bezels.',
-      image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=85',
+      image: galaImg,
       route: '/collections/high-jewellery'
     },
     {
@@ -44,7 +51,7 @@ export const WhatIsTheMomentSection: React.FC = () => {
       title: 'THE ANNIVERSARY',
       tag: 'Historic Memory Keepers',
       desc: 'Vintage rose-cut pendants and hand-chased temple gold talismans.',
-      image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=85',
+      image: anniversaryImg,
       route: '/collections'
     },
     {
@@ -52,7 +59,7 @@ export const WhatIsTheMomentSection: React.FC = () => {
       title: 'THE MOMENT THAT MATTERS',
       tag: 'Private Sovereign Milestones',
       desc: 'Bespoke one-of-a-kind jewels conceived slowly to commemorate private triumph.',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=85',
+      image: privateImg,
       route: '/bespoke'
     }
   ];
@@ -113,9 +120,9 @@ export const WhatIsTheMomentSection: React.FC = () => {
                   <ImageWithFallback
                     src={m.image}
                     alt={m.title}
-                    className="w-full h-full object-cover grayscale-[0.2] contrast-105 group-hover:scale-110 transition-transform duration-1000"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#171717]/90 via-[#171717]/35 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#171717]/80 via-[#171717]/20 to-transparent pointer-events-none" />
                 </div>
 
                 {/* Top Corner Badge */}

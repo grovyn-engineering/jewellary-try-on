@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface ImageWithFallbackProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fallbackSrc?: string;
@@ -15,21 +15,23 @@ export const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
 }) => {
   const [imgSrc, setImgSrc] = useState<string | undefined>(src);
   const [hasError, setHasError] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setImgSrc(src);
+    setHasError(false);
+  }, [src]);
 
   return (
     <img
-      src={hasError ? fallbackSrc : (imgSrc || fallbackSrc)}
+      src={hasError || !imgSrc ? fallbackSrc : imgSrc}
       alt={alt || 'Aurevya Haute Joaillerie'}
-      referrerPolicy="no-referrer"
       onError={() => {
         if (!hasError) {
           setHasError(true);
           setImgSrc(fallbackSrc);
         }
       }}
-      onLoad={() => setIsLoaded(true)}
-      className={`${className} transition-opacity duration-700 ${isLoaded ? 'opacity-100' : 'opacity-85'}`}
+      className={className}
       {...props}
     />
   );

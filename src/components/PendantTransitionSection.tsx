@@ -53,7 +53,7 @@ export const PendantTransitionSection: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(169,139,88,0.04),transparent_80%)]" />
 
       <div className="max-w-7xl mx-auto space-y-16 sm:space-y-24">
-        
+
         {/* =========================================================================
             HEADER: THE CONTINUOUS METAMORPHOSIS TRACK
             PENDANT -> STONE -> LIGHT -> SEE IT ON YOU
@@ -80,11 +80,10 @@ export const PendantTransitionSection: React.FC = () => {
               <button
                 key={state.id}
                 onClick={() => setActiveStep(idx)}
-                className={`px-3.5 py-2 text-[9px] tracking-[0.2em] uppercase font-sans whitespace-nowrap transition-all border ${
-                  activeStep === idx
+                className={`px-3.5 py-2 text-[9px] tracking-[0.2em] uppercase font-sans whitespace-nowrap transition-all border ${activeStep === idx
                     ? 'border-[#272522] bg-[#272522] text-[#FCFAF6] font-medium shadow-xs'
                     : 'border-[#272522]/15 bg-[#FCFAF6] text-[#6D655B] hover:border-[#272522]'
-                }`}
+                  }`}
               >
                 <span>{state.num} • {state.title}</span>
               </button>
@@ -97,7 +96,7 @@ export const PendantTransitionSection: React.FC = () => {
             Giant Typography "SEE IT ON YOU" + Interactive Muse Stage
            ========================================================================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          
+
           {/* Left Column: Monumental Typography & Visual Relationship Story */}
           <div className="lg:col-span-6 space-y-6 sm:space-y-8 order-2 lg:order-1">
             <span className="text-[9px] tracking-[0.35em] uppercase text-[#A98B58] font-mono">
@@ -156,7 +155,7 @@ export const PendantTransitionSection: React.FC = () => {
           {/* Right Column: Giant Asymmetric Visual Composition */}
           <div className="lg:col-span-6 relative order-1 lg:order-2">
             <div className="relative aspect-[4/5] sm:aspect-square w-full bg-[#F7F3EC] border border-[#272522]/15 overflow-hidden shadow-sm group">
-              
+
               {/* Active Stage Image */}
               <ImageWithFallback
                 src={currentItem.image}
@@ -188,9 +187,8 @@ export const PendantTransitionSection: React.FC = () => {
                     <button
                       key={i}
                       onClick={() => setActiveStep(i)}
-                      className={`h-1.5 transition-all ${
-                        activeStep === i ? 'w-6 bg-[#A98B58]' : 'w-2 bg-[#FCFAF6]/40'
-                      }`}
+                      className={`h-1.5 transition-all ${activeStep === i ? 'w-6 bg-[#A98B58]' : 'w-2 bg-[#FCFAF6]/40'
+                        }`}
                       aria-label={`Go to transition state ${i + 1}`}
                     />
                   ))}

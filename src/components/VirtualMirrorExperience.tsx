@@ -434,11 +434,10 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
                   <button
                     key={style}
                     onClick={() => setSelectedStyle(style)}
-                    className={`px-3 py-1 text-[9px] tracking-wider uppercase font-sans border transition-all ${
-                      selectedStyle === style
+                    className={`px-3 py-1 text-[9px] tracking-wider uppercase font-sans border transition-all ${selectedStyle === style
                         ? 'border-[#A98B58] bg-[#272522] text-[#FCFAF6]'
                         : 'border-[#272522]/15 bg-[#FCFAF6] text-[#6D655B] hover:text-[#272522]'
-                    }`}
+                      }`}
                   >
                     {style}
                   </button>
@@ -499,11 +498,10 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
                     setSelectedJewel(jewel);
                     setActiveStep('step-2-source');
                   }}
-                  className={`cursor-pointer border p-3 flex flex-col justify-between transition-all duration-300 ${
-                    selectedJewel.id === jewel.id
+                  className={`cursor-pointer border p-3 flex flex-col justify-between transition-all duration-300 ${selectedJewel.id === jewel.id
                       ? 'border-[#A98B58] bg-[#F7F3EC] shadow-md'
                       : 'border-[#272522]/10 bg-[#FCFAF6] hover:border-[#A98B58]/50'
-                  }`}
+                    }`}
                 >
                   <div className="aspect-square overflow-hidden bg-[#EEE8DE]/50 mb-2">
                     <img src={jewel.images[0]} alt={jewel.title} className="w-full h-full object-cover" />
@@ -621,7 +619,7 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
                 </span>
                 <div className="aspect-[3/4] overflow-hidden border border-[#272522]/10 bg-[#EEE8DE] relative">
                   <img src={userImage} alt="Portrait preview" className="w-full h-full object-cover" />
-                  
+
                   {/* Validation Badge */}
                   <div className="absolute bottom-2 left-2 right-2 p-2 bg-[#FCFAF6]/95 border border-[#A98B58]/40 backdrop-blur-xs text-[9px] font-sans text-[#272522]">
                     {validationInfo.checking ? (
@@ -859,11 +857,10 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
                         <button
                           key={light.id}
                           onClick={() => setLightingMode(light.id as any)}
-                          className={`px-3 py-1.5 text-[9px] tracking-wider uppercase font-sans flex items-center gap-1.5 border transition-all ${
-                            isActive
+                          className={`px-3 py-1.5 text-[9px] tracking-wider uppercase font-sans flex items-center gap-1.5 border transition-all ${isActive
                               ? 'border-[#A98B58] bg-[#272522] text-[#FCFAF6]'
                               : 'border-[#272522]/10 bg-[#FCFAF6] text-[#6D655B] hover:text-[#272522]'
-                          }`}
+                            }`}
                         >
                           <Icon size={12} className={isActive ? 'text-[#C9B38A]' : 'text-[#A98B58]'} />
                           <span>{light.label}</span>
@@ -975,11 +972,10 @@ export const VirtualMirrorExperience: React.FC<VirtualMirrorProps> = ({
                           setSelectedJewel(jewel);
                           triggerAiProcessing();
                         }}
-                        className={`cursor-pointer border p-1.5 transition-all ${
-                          selectedJewel.id === jewel.id
+                        className={`cursor-pointer border p-1.5 transition-all ${selectedJewel.id === jewel.id
                             ? 'border-[#A98B58] bg-[#FCFAF6]'
                             : 'border-[#272522]/10 bg-[#FCFAF6] hover:border-[#A98B58]/50'
-                        }`}
+                          }`}
                         title={jewel.title}
                       >
                         <img src={jewel.images[0]} alt={jewel.title} className="w-full aspect-square object-cover" />

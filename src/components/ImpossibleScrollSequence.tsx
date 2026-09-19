@@ -15,7 +15,7 @@ interface SequenceStage {
 
 const SEQUENCE_STAGES: SequenceStage[] = [
   {
-    step: '01',
+    step: '1',
     title: 'THE ROUGH CRYSTAL',
     subtitle: 'Muzo Mountain Geologic Genesis',
     description: 'Subterranean hydrothermal emerald crystal formed 65 million years ago, harboring an ancient jardin of liquid and brine.',
@@ -23,7 +23,7 @@ const SEQUENCE_STAGES: SequenceStage[] = [
     craftDetail: 'Chromium-rich beryl crystal with natural untreated hexagonal prisms.'
   },
   {
-    step: '02',
+    step: '2',
     title: 'THE ARCHITECTURAL SKETCH',
     subtitle: 'Gouache on Vellum Watermark',
     description: 'Rendered at 1:1 scale by our Haute Joaillerie Art Director, mapping light refraction angles and concealed gold articulation joints.',
@@ -31,7 +31,7 @@ const SEQUENCE_STAGES: SequenceStage[] = [
     craftDetail: 'Four weeks of mathematical draftsmanship to achieve perfect neckline contour.'
   },
   {
-    step: '03',
+    step: '3',
     title: 'THE ATELIER BENCH',
     subtitle: 'Forging 22K Solid Gold & 950 Platinum',
     description: 'Master goldsmiths beat and pierce the gold by hand, chasing microscopic jaali patterns into each articulating link.',
@@ -39,7 +39,7 @@ const SEQUENCE_STAGES: SequenceStage[] = [
     craftDetail: 'Over 740 hours of solitary handcraft with traditional charcoal blowpipe annealing.'
   },
   {
-    step: '04',
+    step: '4',
     title: 'THE MASTERWORK COMPLETED',
     subtitle: 'The Noor-E-Nizam Haute Collar',
     description: 'Set with 42.8 carats of Muzo emeralds and 58 carats of Syndicate uncut Polki diamonds, crowned with Basra pearl drops.',
@@ -47,7 +47,7 @@ const SEQUENCE_STAGES: SequenceStage[] = [
     craftDetail: 'Dual certified by SSEF Swiss Gemmological Institute & GIA.'
   },
   {
-    step: '05',
+    step: '5',
     title: 'BECOMING YOURS',
     subtitle: 'The AI Virtual Mirror Simulation',
     description: 'Real-time drape simulation projects how the 165g collar articulates against your collarbone and catches salon daylight.',
@@ -55,7 +55,7 @@ const SEQUENCE_STAGES: SequenceStage[] = [
     craftDetail: 'Calculated in browser sub-second with lighting modulation.'
   },
   {
-    step: '06',
+    step: '6',
     title: 'THE PRIVATE VIEWING',
     subtitle: 'Audience in our Confidential Salon',
     description: 'The physical creation is transported by secure courier to your chosen private salon suite for personal fitting and champagne.',
